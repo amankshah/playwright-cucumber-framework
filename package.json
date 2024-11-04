@@ -11,6 +11,7 @@
     "@playwright/test": "^1.48.2",
     "@types/node": "^22.8.7",
     "allure-commandline": "^2.32.0",
+    "allure-playwright": "^3.0.6",
     "cucumber": "^6.0.7",
     "playwright": "^1.48.2",
     "ts-node": "^10.9.2",
