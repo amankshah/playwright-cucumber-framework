@@ -8,5 +8,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "This is a basic cucumber framework for playwright using playwright and cucumber using typescript"
 }
