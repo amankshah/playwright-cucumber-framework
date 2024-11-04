@@ -21,7 +21,18 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  // reporter: ,
+  reporter: [
+    ['html'], //due to this we are able to see the report in the browser  use //! npx playwright show-report
+    ['list'], //due to this we are able to see the report in the terminal
+    ['allure-playwright'], //due to this we are able to see the report in the allure  
+
+        /*  ! To see allure report first you need to generate allure report using 
+        allure generate allure-results --clean -o allure-report
+        then you can get the report using
+        allure open allure-report
+        */
+  ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
