@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer's Handbook</title>
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .content {
+            margin: 20px 0;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 15px 0;
+        }
+        h1, h2 {
+            color: #343a40;
+        }
+        pre {
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+            position: relative;
+        }
+        .copy-icon {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            cursor: pointer;
+            color: #007bff;
+        }
+    </style>
+    <script>
+       function copyToClipboard(element) {
+                    const commandElement = element.parentElement; // Get the parent <pre> element
+                    const command = commandElement.innerText; // Get the command text from the <code> element
+
+                    navigator.clipboard.writeText(command).then(() => {
+                              // Change the font weight of the <code> element to bold
+                              commandElement.querySelector('code').style.fontWeight = 'bold';
+
+                              // Reset the style back after a delay
+                              setTimeout(() => {
+                                        commandElement.querySelector('code').style.fontWeight = 'normal';
+                              }, 1000);
+                    }).catch(err => {
+                              console.error('Failed to copy: ', err);
+                    });
+          }
+
+    </script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Developer's Handbook for Playwright Framework</h1>
+        <hr>
+        
+        <h2>Table of Contents</h2>
+        <ul class="list-unstyled">
+            <li><a href="#setup">Project Setup</a></li>
+            <li><a href="#commands">Useful Commands</a></li>
+            <li><a href="#reporting">Generating Allure Reports</a></li>
+            <li><a href="#contributing">Contributing</a></li>
+        </ul>
+
+        <div class="content">
+            <h2 id="setup">1. Project Setup</h2>
+            <div class="card">
+                <div class="card-body">
+                    <p>Follow the steps below to set up the Playwright framework with TypeScript:</p>
+                    <ol>
+                        <li>Initialize a new Node.js project:</li>
+                        <pre><code>npm init -y</code><i class="fas fa-copy copy-icon" onclick="copyToClipboard(this)"></i></pre>
+
+                        <li>Install Playwright and other necessary dependencies:</li>
+                        <pre><code>npm install playwright @playwright/test cucumber ts-node typescript allure-commandline --save-dev</code><i class="fas fa-copy copy-icon" onclick="copyToClipboard(this)"></i></pre>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <h2 id="commands">2. Useful Commands</h2>
+            <div class="card">
+                <div class="card-body">
+                    <ul>
+                        <li><strong>Run Tests:</strong>
+                            <pre><code>npx playwright test</code><i class="fas fa-copy copy-icon" onclick="copyToClipboard(this)"></i></pre>
+                        </li>
+                        <li><strong>Install Playwright Browsers:</strong>
+                            <pre><code>npx playwright install</code><i class="fas fa-copy copy-icon" onclick="copyToClipboard(this)"></i></pre>
+                        </li>
+                        <li><strong>Generate Allure Report:</strong>
+                            <pre><code>allure generate allure-results --clean -o allure-report</code><i class="fas fa-copy copy-icon" onclick="copyToClipboard(this)"></i></pre>
+                        </li>
+                        <li><strong>Open Allure Report:</strong>
+                            <pre><code>allure open allure-report</code><i class="fas fa-copy copy-icon" onclick="copyToClipboard(this)"></i></pre>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <h2 id="reporting">3. Generating Allure Reports</h2>
+            <div class="card">
+                <div class="card-body">
+                    <p>After running your tests, you can generate an Allure report using the following commands:</p>
+                    <ol>
+                        <li>Run the tests to generate Allure results:</li>
+                        <pre><code>npx playwright test</code><i class="fas fa-copy copy-icon" onclick="copyToClipboard(this)"></i></pre>
+                        <li>Generate the Allure report:</li>
+                        <pre><code>allure generate allure-results --clean -o allure-report</code><i class="fas fa-copy copy-icon" onclick="copyToClipboard(this)"></i></pre>
+                        <li>Open the Allure report:</li>
+                        <pre><code>allure open allure-report</code><i class="fas fa-copy copy-icon" onclick="copyToClipboard(this)"></i></pre>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <h2 id="contributing">4. Contributing</h2>
+            <div class="card">
+                <div class="card-body">
+                    <p>If you wish to contribute to this framework, please follow these guidelines:</p>
+                    <ul>
+                        <li>Fork the repository.</li>
+                        <li>Create a new branch for your feature or bug fix.</li>
+                        <li>Make your changes and commit them.</li>
+                        <li>Push your changes to your forked repository.</li>
+                        <li>Submit a pull request.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <footer class="text-center">
+            <p>&copy; 2024 Aman | <a href="https://www.linkedin.com/in/YOUR_LINKEDIN_ID" target="_blank" style="color: white;">LinkedIn</a></p>
+        </footer>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
