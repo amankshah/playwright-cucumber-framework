@@ -4,7 +4,9 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "npx cucumber-js --require ts-node/register --require tests/steps/**/*.ts --require ./tests/support/cucumber.ts tests/features/**/*.feature"
+    "test": "npx cucumber-js --require ts-node/register --require tests/steps/**/*.ts --require ./tests/support/cucumber.ts tests/features/**/*.feature",
+    "report-gen": "npx allure generate allure-results --clean -o allure-report",
+    "report-open": "npx allure open allure-report"
   },
   "devDependencies": {
     "@cucumber/cucumber": "^11.0.1",
