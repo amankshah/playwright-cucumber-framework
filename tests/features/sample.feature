@@ -1,5 +1,6 @@
-Feature: User Login
-  Scenario: Successful login with valid credentials
-    Given I am on the login page
-    When I enter valid credentials
-    Then I should see the welcome message
+Feature: Google Search
+
+  Scenario: Search for Playwright
+    Given Navigating to google.com
+    When Searching for "Playwright"
+    Then getting the first search result

@@ -1,16 +1,20 @@
 import { setWorldConstructor } from '@cucumber/cucumber';
-import { Page, chromium } from 'playwright';
+import { chromium, Page, Browser } from 'playwright';
 
 class CustomWorld {
     page: Page;
+    browser: Browser;
 
-    constructor() {
-        // Initialize Playwright's browser and page here
-        this.page = await chromium.launch({ headless: true }).newPage();
+    constructor() {}
+
+    async init() {
+        this.browser = await chromium.launch({ headless: true });
+        this.page = await this.browser.newPage();
     }
 
-    async closePage() {
-        await this.page.close();
+    async close() {
+        await this.page?.close();
+        await this.browser?.close();
     }
 }
 

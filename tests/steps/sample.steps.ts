@@ -1,17 +1,13 @@
 import { Given, When, Then } from '@cucumber/cucumber';
-import { expect } from '@playwright/test';
-import { page } from '../support/world'; // Your custom world for shared page context
 
-Given('I am on the login page', async () => {
-    await page.goto('https://example.com/login');
+Given('Navigating to google.com', async function () {
+  // Implementation to navigate to google.com
 });
 
-When('I enter valid credentials', async () => {
-    await page.fill('#username', 'validUser');
-    await page.fill('#password', 'validPassword');
-    await page.click('#loginButton');
+When('Searching for {string}', async function (searchTerm: string) {
+  // Implementation for searching for the term
 });
 
-Then('I should see the welcome message', async () => {
-    await expect(page.locator('#welcomeMessage')).toHaveText('Welcome, validUser!');
+Then('getting the first search result', async function () {
+  // Implementation for checking the first search result
 });

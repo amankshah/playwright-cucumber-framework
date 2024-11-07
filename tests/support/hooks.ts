@@ -1,11 +1,9 @@
-import { setDefaultTimeout, After, Before } from '@cucumber/cucumber';
-
-setDefaultTimeout(60 * 1000); // 60 seconds timeout for each scenario
+import { Before, After } from '@cucumber/cucumber';
 
 Before(async function () {
-    // Add custom setup here if needed
+    await this.init(); // Initialize page
 });
 
 After(async function () {
-    await this.closePage(); // Close page after each scenario
+    await this.close(); // Close page after each scenario
 });

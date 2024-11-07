@@ -14,9 +14,12 @@ const structure = {
         'steps': {
             'sample.steps.ts': `import { Given, When, Then } from '@cucumber/cucumber';
 import { expect } from '@playwright/test';
-import { page } from '../support/world'; // Your custom world for shared page context
 
-Given('I am on the login page', async () => {
+let page;
+
+Given('I am on the login page', async function () {
+    await this.initialize(); // Initialize browser and page context
+    page = this.page;
     await page.goto('https://example.com/login');
 });
 
@@ -43,21 +46,25 @@ After(async function () {
     await this.closePage(); // Close page after each scenario
 });`,
             'world.ts': `import { setWorldConstructor } from '@cucumber/cucumber';
-import { Page, chromium } from 'playwright';
+import { Page, Browser, chromium } from 'playwright';
 
 class CustomWorld {
-    page: Page;
+    page!: Page;
+    browser!: Browser;
 
-    constructor() {
-        // Initialize Playwright's browser and page here
-        this.page = await chromium.launch({ headless: true }).newPage();
+    // Separate function for setup
+    async initialize() {
+        this.browser = await chromium.launch({ headless: true });
+        this.page = await this.browser.newPage();
     }
 
     async closePage() {
         await this.page.close();
+        await this.browser.close();
     }
 }
 
+// Hook to initialize browser before each scenario
 setWorldConstructor(CustomWorld);`
         }
     }

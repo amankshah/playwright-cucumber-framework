@@ -1,12 +1,11 @@
 {
   "name": "playwright-cucumber-framework",
   "version": "1.0.0",
+  "type": "module",
   "main": "index.js",
-  "scripts": {},
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "This is a basic cucumber framework for playwright using playwright and cucumber using typescript",
+  "scripts": {
+    "test": "npx cucumber-js --require ts-node/register --require tests/steps/**/*.ts --require ./tests/support/cucumber.ts tests/features/**/*.feature"
+  },
   "devDependencies": {
     "@cucumber/cucumber": "^11.0.1",
     "@playwright/test": "^1.48.2",
@@ -14,8 +13,6 @@
     "@types/node": "^22.8.7",
     "allure-commandline": "^2.32.0",
     "allure-playwright": "^3.0.6",
-    "cucumber": "^6.0.7",
-    "playwright": "^1.48.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.3"
   }
